@@ -52,3 +52,12 @@ span:hover{
     color: rgb(182, 157, 157);
     transition: all 0.5s ease;
 }
+.continents{
+    display: none;
+    padding: 10px;
+    margin: 80px;
+    border: solid 1px rgb(182, 157, 157);
+    position: absolute;
+    z-index: 2;
+    background-color: rgb(153, 128, 128);
+}

@@ -28,12 +28,27 @@ h1
  
     padding: 10px;
     color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, 
+    Helvetica, sans-serif;
+   
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 img{
-    width: 20px    ;
+    width: 20px;
     height: 20px;
+    margin-left: 15px;
+}
+.search{
+    max-width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+span{
+    cursor: pointer;
+}
+span:hover{
+    color: rgb(182, 157, 157);
+    transition: all 0.5s ease;
 }

@@ -7,12 +7,22 @@ class Country extends HTMLElement {
       data.map((element) => {
         this.innerHTML += `
             <div class="element">
-              ${element.name.common}
-              <img src="${element.flags.svg}" alt="${element.name.common}">
+              <span onclick="modal(${element.area})">
+              ${element.name.common}</span>
+              <img src="${element.flags.svg}" alt="${element.name.common}"> 
             </div>
              `;
       });
     });
+  }
+
+  static get obserdAtributes() {
+    return [
+      (continents = {
+        type: String,
+        value: modal(),
+      }),
+    ];
   }
 }
 
@@ -20,12 +30,21 @@ const getContry = async () => {
   const response = await fetch("https://restcountries.com/v3.1/all");
   const data = await response.json();
 
-  const finalData = data.slice(0, 12).sort((a, b) => {
-    return a.name.common > b.name.common ? 1 : -1;
-  });
-
-  console.log(finalData);
-  return finalData;
+  console.log(data.slice(0, 12));
+  return data.slice(0, 12);
 };
+
+function modal(val) {
+  let continents;
+  getContry().then((data) => {
+    data.filter((element) => {
+      if (element.area === val) {
+        continents = element.continents[0];
+        console.log(continents);
+      }
+    });
+  });
+  return continents;
+}
 
 window.customElements.define("country-element", Country);
